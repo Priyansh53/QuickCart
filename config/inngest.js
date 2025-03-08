@@ -45,7 +45,7 @@ export const syncUserUpdation = inngest.createFunction(
         const userData = {
             _id:id,
             email:email_addresses[0].email_address,
-            name: first_name + '' + last_name,
+            name: first_name + ' ' + last_name,
             imageUrl:image_url
         }
         await connectDb()
@@ -64,7 +64,7 @@ export const syncUserDeletion = inngest.createFunction(
     {
         event:'clerk/user.deleted'
     }
-    async ({event}) => {
+       async ({event}) => {
         const {id} = event.data
 
         await connectDb()
